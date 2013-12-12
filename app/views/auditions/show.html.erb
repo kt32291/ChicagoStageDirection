@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @audition.name %>
+</p>
+
+<p>
+  <strong>Post date:</strong>
+  <%= @audition.post_date %>
+</p>
+
+<p>
+  <strong>Audition date:</strong>
+  <%= @audition.audition_date %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @audition.description %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @audition.company.name %>
+</p>
+
+<% if session[:associate_id] %>
+  <% associate = Associate.find_by(id: session[:associate_id]) %>
+  <% if associate.company_id == @audition.company.id %>
+  <%= link_to "Submissions", submissions_url(audition_id: @audition.id) %>
+  <% end %>
+<% end %>
+
+<td><%= link_to 'Submit', new_submission_url(audition_id: @audition.id) %></td>
+<br>
+<br>
+<br>
+
+<%= link_to 'Edit', edit_audition_path(@audition) %> |
+<%= link_to 'Back', auditions_path %>

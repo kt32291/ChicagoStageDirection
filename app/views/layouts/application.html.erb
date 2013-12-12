@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chicago Stage Direction</title>
+
+ <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="container">
+
+
+<nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/"><i class="fa fa-home"></i> Home</a>
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="nav navbar-nav">
+  <% if session[:actor_id] || session[:associate_id] %>
+      <li class="active"><%= link_to "Sign Out", '/logout', :class => "nb" %></li>
+      <% if session[:actor_id] %>
+      <% user = Actor.find_by(id: session[:actor_id]) %>
+      <p class="navbar-text">Hello, <%= user.first_name %>!</p>
+      <% elsif session [:associate_id] %>
+      <% user = Associate.find_by(id: session[:associate_id]) %>
+      <p class="navbar-text">Hello, <%= user.name %>!</p>
+      <% end %>
+  <% else %>
+      <li class="active"><%= link_to "Sign In", '/login', :class => "nb" %></li>
+      <li><%= link_to "Sign Up", new_actor_url %></li>
+      <li><%= link_to "Register Your Company", new_company_url %></li>
+      <li><%= link_to "Create A Casting Profile", new_associate_url %></li>
+  <% end %>
+</ul>
+</nav>
+
+    <h1><%= image_tag 'CSDlogo.png', height: 180 %></h1>
+
+</div>
+
+<div class="container">
+<%= yield %>
+</div>
+
+</body>
+</html>

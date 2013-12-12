@@ -1,0 +1,69 @@
+<h1>Actor Submissions for <%= @audition.name %>:</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <h2 class="center">Women:</h2>
+    <% @women.each do |woman| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= woman.first_name %> <%= woman.last_name %></h3>
+      </div>
+    <div class="panel-body">
+      <div class="col-md-4">
+        <%= image_tag(woman.headshot.url, :alt => 'headshot', :height => 150, class: 'headshot') %>
+      </div>
+      <div class="col-md-4">
+        <ul>
+          <% if woman.equity == "Yes" || woman.equity == "EMC" %>
+          <li>Equity Status: <%= woman.equity %></li>
+          <% end %>
+          <li>Height: <%= woman.height %></li>
+          <li>Weight: <%= woman.weight %></li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+      <%= link_to '<i class="fa fa-user"></i> Visit Profile'.html_safe, actor_url(woman), class: "btn btn-primary" %>
+      <br>
+      <br>
+      <%= mail_to "#{woman.email}", '<i class="fa fa-envelope"></i> Email Actor'.html_safe, class: "btn btn-primary" %>
+  </div>
+</div>
+</div>
+    <% end %>
+</div>
+
+  <div class="col-md-6">
+    <h2 class="center">Men:</h2>
+    <% @men.each do |man| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= man.first_name %> <%= man.last_name %></h3>
+      </div>
+    <div class="panel-body">
+      <div class="col-md-4">
+        <%= image_tag(man.headshot.url, :alt => 'headshot', :height => 150, class: 'headshot') %>
+      </div>
+      <div class="col-md-4">
+        <ul>
+          <% if man.equity == "Yes" || man.equity == "EMC" %>
+          <li>Equity: <%= man.equity %></li>
+          <% end %>
+          <li>Height: <%= man.height %></li>
+          <li>Weight: <%= man.weight %></li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+      <%= link_to '<i class="fa fa-user"></i> Visit Profile'.html_safe, actor_url(man), class: "btn btn-primary" %>
+      <br>
+      <br>
+      <%= mail_to "#{man.email}", '<i class="fa fa-envelope"></i> Email Actor'.html_safe, class: "btn btn-primary" %>
+  </div>
+</div>
+</div>
+    <% end %>
+
+</div>
+
+</div>
+
+

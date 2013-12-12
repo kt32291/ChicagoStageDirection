@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @company.description %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @company.phone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @company.email %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @company.logo %>
+</p>
+
+<h2>Casting Associates:</h2>
+<% associates = @company.associates %>
+<% associates.each do |associate| %>
+<p><%= associate.name %></p>
+<% end %>
+
+<h2>Upcoming Auditions:</h2>
+<% auditions = @company.auditions %>
+<% auditions.each do |audition| %>
+<%= link_to "#{audition.name}", audition_url(audition.id) %>
+<% end %>
+<br>
+<br>
+<br>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

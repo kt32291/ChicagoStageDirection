@@ -1,0 +1,13 @@
+<%= form_tag(submissions_url, method: 'post') do %>
+
+<h2>Submit materials for <%= @audition.name %>?</h2>
+
+<%= hidden_field_tag :audition_id, params[:audition_id] %>
+<%= hidden_field_tag :actor_id, session[:actor_id] %>
+
+<%= submit_tag "Yes", class: "btn btn-primary" %>
+
+<% end %>
+
+<button type="button" class="btn btn-primary"><%= link_to "No", auditions_url %></button>
+

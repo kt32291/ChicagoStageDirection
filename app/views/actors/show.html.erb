@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @actor.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @actor.last_name %>
+</p>
+
+<p>
+  <strong>Equity:</strong>
+  <%= @actor.equity %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @actor.height %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @actor.weight %>
+</p>
+
+<p>
+  <strong>Headshot:</strong>
+  <%= image_tag(@actor.headshot.url, :alt => 'headshot', :height => 300) %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <object data="<%= @actor.resume %>" width="100%" height="100%"></object>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @actor.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_actor_path(@actor) %> |
+<%= link_to 'Delete Account', @actor, method: :delete, data: { confirm: 'Are you sure you want to delete your account?' } %> |
+<%= link_to 'Back', actors_path %>

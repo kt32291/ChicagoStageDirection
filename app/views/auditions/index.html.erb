@@ -1,0 +1,42 @@
+
+
+<div class="container">
+
+  <h3><span class="primary_blue">Chicago Stage Direction</span> is a streamlined app allowing actors to submit materials with a single click. We post new auditions every day, so check back frequently!</h3>
+
+<div class="row">
+  <div class="col-md-3 hidden-sm">
+        <h1 class="right">Auditions <i class="fa fa-arrow-right"></i></h1>
+  <ul class="list-group">
+  <li class="list-group-item">
+    <span class="badge">82</span>
+    All Auditions
+  </li>
+  <li class="list-group-item">
+    <span class="badge">45</span>
+    Equity Auditions
+  </li>
+  <li class="list-group-item">
+    <span class="badge">37</span>
+    Non-Equity Auditions
+  </li>
+</ul>
+<span class="notice"><%= notice %></span>
+  </div>
+
+<div class="col-xs-12 col-md-9">
+    <% @auditions.each do |audition| %>
+    <% company = Company.find_by(id: audition.company_id) %>
+     <div class="container">
+        <h2><%= link_to '<i class="fa fa-check"></i> Submit'.html_safe, new_submission_url(audition_id: audition.id), class: "btn btn-primary" %>  <%= company.name %>: <%= link_to audition.name, audition, class: "link_fix" %></h2>
+        Audition Date: <%= audition.audition_date %><br>
+        <%= audition.description %><br>
+    </div>
+  <% end %>
+  </div>
+</div>
+
+
+<br>
+
+<%= link_to 'New Audition', new_audition_path %>
