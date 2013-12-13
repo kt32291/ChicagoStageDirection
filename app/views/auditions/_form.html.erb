@@ -24,6 +24,10 @@
     <%= f.text_field :audition_date %>
   </div>
   <div class="field">
+    <%= f.label :equity %>
+    <%= f.select :equity, "<option>Equity</option><option>Non-Equity</option>".html_safe %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>

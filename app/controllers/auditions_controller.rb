@@ -71,6 +71,6 @@ class AuditionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def audition_params
-      params.require(:audition).permit(:name, :post_date, :audition_date, :description, :company_id)
+      params.require(:audition).permit(:name, :post_date, :audition_date, :description, :equity, :company_id)
     end
 end
