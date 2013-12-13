@@ -28,6 +28,11 @@
     <% @auditions.each do |audition| %>
     <% company = Company.find_by(id: audition.company_id) %>
         <h2><%= link_to '<i class="fa fa-check"></i> Submit'.html_safe, new_submission_url(audition_id: audition.id), class: "btn btn-primary" %>  <%= company.name %>: <%= link_to audition.name, audition, class: "link_fix" %></h2>
+        <% if audition.equity == "Equity" %>
+        <p class="primary_blue"><i class="fa fa-star"></i> <span class="bold"><%= audition.equity %></span></p>
+        <% else %>
+        <p class="primary_blue"><i class="fa fa-star-o"></i> <span class="bold"><%= audition.equity %></span></p>
+        <% end %>
         <span class="bold">Audition Date:</span> <%= audition.audition_date %><br>
         <%= audition.description %><br>
   <% end %>
