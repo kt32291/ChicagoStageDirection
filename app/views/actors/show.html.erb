@@ -7,7 +7,7 @@
   <%= link_to '<i class="fa fa-arrow-left"></i> Back'.html_safe, :back, class: "link_fix" %>
   <h1 class="center primary_blue name"><%= @actor.first_name %> <%= @actor.last_name %></h1>
   <h3 class="center"><%= @actor.email %></h3>
-  <%= image_tag(@actor.headshot.url, :alt => 'headshot', :width => 265, class: "headshot") %>
+  <%= image_tag(@actor.headshot, :alt => 'headshot', :width => 265, class: "headshot") %>
   <br>
   <br>
 <div class="panel panel-default">
