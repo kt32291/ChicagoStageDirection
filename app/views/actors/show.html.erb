@@ -1,46 +1,50 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @actor.first_name %>
-</p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @actor.last_name %>
-</p>
+<div class="row">
 
-<p>
-  <strong>Equity:</strong>
-  <%= @actor.equity %>
-</p>
+<div class="col-md-3">
+  <%= link_to '<i class="fa fa-arrow-left"></i> Back'.html_safe, :back, class: "link_fix" %>
+  <h1 class="center primary_blue name"><%= @actor.first_name %> <%= @actor.last_name %></h1>
+  <h3 class="center"><%= @actor.email %></h3>
+  <%= image_tag(@actor.headshot.url, :alt => 'headshot', :width => 265, class: "headshot") %>
+  <br>
+  <br>
+<div class="panel panel-default">
+  <div class="panel-body">
+<ul class="left">
+  <% if @actor.equity == "Equity" %>
+  <li><h4 class="primary_blue"><i class="fa fa-star"></i> <%= @actor.equity %></h4></li>
+  <% elsif @actor.equity == "EMC" %>
+  <li><h4 class="primary_blue"><i class="fa fa-star-half-o"></i> <%= @actor.equity %></h4></li>
+  <% end %>
+  <li><h4><span class="bold">Height:</span> <%= @actor.height %></h4></li>
+  <li><h4><span class="bold">Weight:</span> <%= @actor.weight %></h4></li>
+  <li><h4><span class="bold">Hair:</span> <%= @actor.hair %></h4></li>
+  <li><h4><span class="bold">Eyes:</span> <%= @actor.eyes %></h4></li>
+</ul>
+</div>
+</div>
 
-<p>
-  <strong>Height:</strong>
-  <%= @actor.height %>
-</p>
+<div class="center">
+  <% if session[:actor_id] %>
+    <%= link_to '<i class="fa fa-pencil"></i> Edit Profile'.html_safe, edit_actor_url(@actor), class: "btn btn-primary" %>
+    <%= link_to '<i class="fa fa-trash-o"></i> Delete Profile'.html_safe, @actor, method: :delete, data: { confirm: 'Are you sure you want to delete your account? This action cannot be reversed.' }, class: "btn btn-primary" %>
 
-<p>
-  <strong>Weight:</strong>
-  <%= @actor.weight %>
-</p>
+  <% elsif session[:associate_id] %>
+    <%= mail_to "#{@actor.email}", '<i class="fa fa-envelope"></i> Email Actor'.html_safe, class: "btn btn-primary" %>
+  <% end %>
+</div>
 
-<p>
-  <strong>Headshot:</strong>
-  <%= image_tag(@actor.headshot.url, :alt => 'headshot', :height => 300) %>
-</p>
+</div>
 
-<p>
-  <strong>Resume:</strong>
-  <object data="<%= @actor.resume %>" width="100%" height="100%"></object>
-</p>
+<div class="col-md-9">
+  <div class="container">
 
-<p>
-  <strong>Email:</strong>
-  <%= @actor.email %>
-</p>
+  <iframe src="<%= @actor.resume %>" width="70%" height="975"></iframe>
+</div>
+</div>
+</div>
 
 
-<%= link_to 'Edit', edit_actor_path(@actor) %> |
-<%= link_to 'Delete Account', @actor, method: :delete, data: { confirm: 'Are you sure you want to delete your account?' } %> |
-<%= link_to 'Back', actors_path %>
+

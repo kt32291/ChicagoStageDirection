@@ -38,7 +38,7 @@
   </div>
   <div class="field">
     <%= f.label :equity %><br>
-    <%= f.text_field :equity %>
+    <%= f.select :equity, "<option>Equity</option><option>EMC</option><option>Non-Equity</option>".html_safe %>
   </div>
   <div class="field">
     <%= f.label :height %><br>
@@ -47,6 +47,14 @@
   <div class="field">
     <%= f.label :weight %><br>
     <%= f.number_field :weight %> lbs
+  </div>
+  <div class="field">
+    <%= f.label :hair %><br>
+    <%= f.select :hair, "<option>Brown</option><option>Blonde</option><option>Dirty Blonde</option><option>Red</option><option>Black</option><option>Gray</option>".html_safe %>
+  </div>
+  <div class="field">
+    <%= f.label :eyes %><br>
+    <%= f.select :eyes, "<option>Blue</option><option>Brown</option><option>Hazel</option><option>Green</option><option>Gray</option>".html_safe %>
   </div>
   <div class="field">
     <%= f.label :headshot %><br>

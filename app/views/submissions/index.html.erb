@@ -1,24 +1,30 @@
+<%= link_to '<i class="fa fa-arrow-left"></i> Back'.html_safe, :back, class: "link_fix" %>
 <h1>Actor Submissions for <%= @audition.name %>:</h1>
+
 
 <div class="row">
   <div class="col-md-6">
     <h2 class="center">Women:</h2>
     <% @women.each do |woman| %>
-    <div class="panel panel-default">
+    <div class="panel panel-default height">
       <div class="panel-heading">
         <h3 class="panel-title"><%= woman.first_name %> <%= woman.last_name %></h3>
       </div>
     <div class="panel-body">
-      <div class="col-md-4">
-        <%= image_tag(woman.headshot.url, :alt => 'headshot', :height => 150, class: 'headshot') %>
+      <div class="col-md-3">
+        <%= image_tag(woman.headshot.url, :alt => 'headshot', :width => 100, class: 'headshot') %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
         <ul>
-          <% if woman.equity == "Yes" || woman.equity == "EMC" %>
-          <li>Equity Status: <%= woman.equity %></li>
+          <% if woman.equity == "Equity" %>
+          <li class="bold primary_blue"><i class="fa fa-star"></i> <%= woman.equity %></li>
+          <% elsif woman.equity == "EMC" %>
+          <li class="bold primary_blue"><i class="fa fa-star-half-o"></i> <%= woman.equity %></li>
           <% end %>
-          <li>Height: <%= woman.height %></li>
-          <li>Weight: <%= woman.weight %></li>
+          <li><span class="bold">Height:</span> <%= woman.height %></li>
+          <li><span class="bold">Weight:</span> <%= woman.weight %> lbs</li>
+          <li><span class="bold">Hair:</span> <%= woman.hair %></li>
+          <li><span class="bold">Eyes:</span> <%= woman.eyes %></li>
         </ul>
     </div>
     <div class="col-md-4">
@@ -35,21 +41,25 @@
   <div class="col-md-6">
     <h2 class="center">Men:</h2>
     <% @men.each do |man| %>
-    <div class="panel panel-default">
+    <div class="panel panel-default height">
       <div class="panel-heading">
         <h3 class="panel-title"><%= man.first_name %> <%= man.last_name %></h3>
       </div>
     <div class="panel-body">
-      <div class="col-md-4">
+      <div class="col-md-3">
         <%= image_tag(man.headshot.url, :alt => 'headshot', :height => 150, class: 'headshot') %>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-5">
         <ul>
-          <% if man.equity == "Yes" || man.equity == "EMC" %>
-          <li>Equity: <%= man.equity %></li>
+          <% if man.equity == "Equity" %>
+          <li class="bold primary_blue"><i class="fa fa-star"></i> <%= man.equity %></li>
+          <% elsif man.equity == "EMC" %>
+          <li class="bold primary_blue"><i class="fa fa-star-half-o"></i> <%= man.equity %></li>
           <% end %>
-          <li>Height: <%= man.height %></li>
-          <li>Weight: <%= man.weight %></li>
+          <li><span class="bold">Height:</span> <%= man.height %></li>
+          <li><span class="bold">Weight:</span> <%= man.weight %> lbs</li>
+          <li><span class="bold">Hair:</span> <%= man.hair %></li>
+          <li><span class="bold">Eyes:</span> <%= man.eyes %></li>
         </ul>
     </div>
     <div class="col-md-4">

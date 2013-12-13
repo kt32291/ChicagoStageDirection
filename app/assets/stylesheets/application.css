@@ -17,6 +17,15 @@ body {
   background-image: url('grey.png');
 }
 
+li {
+  list-style-type: none;
+}
+
+
+.height {
+  height: 225px;
+}
+
 .headshot {
   border: 1px solid black;
 }
@@ -28,7 +37,7 @@ body {
 .link_fix:hover {
   background: none;
   text-decoration: none;
-  color: rgb(0, 134, 204);
+  color: #999;
 }
 
 .right {
@@ -39,7 +48,22 @@ body {
   color: rgb(0, 135, 204);
 }
 
+.name {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.left {
+  text-align: left;
+}
+
 .notice {
   color: red;
   font-weight: bold;
 }
+
+

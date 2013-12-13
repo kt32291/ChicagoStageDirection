@@ -1,32 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @associate.name %>
-</p>
+<div class="row">
+  <div class="col-md-4">
+    <h1 class="primary_blue name"><%= @associate.name %></h1>
+    <h3><%= @associate.email %></h3>
+  </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @associate.title %>
-</p>
+  <div class="col-md-8">
+    <br>
+    <h2>Companies</h2>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title title"><span class="bold">Title:</span> <%= @associate.title %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <h4><%= @company.name %></h4>
+            <a href="/companies/#{@company.id}"><%= image_tag(@company.logo, :width => 180) %></a>
+          </div>
+          <div class="col-md-8">
+            <h2>Active Auditions:</h2>
+              <ul>
+              <% @auditions.each do |audition| %>
+              <li><h4><%= link_to audition.name, audition_url(audition), class: "btn btn-default" %></h4></li>
+              <% end %>
+              </ul>
+          </div>
 
-<p>
-  <strong>Company:</strong>
-  <%= @company.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @associate.email %>
-</p>
+      </div>
+  </div>
+</div>
+</div>
+</div>
 
 
-<h2>Active Auditions:</h2>
-<ul>
-<% @auditions.each do |audition| %>
-<li><%= link_to audition.name, audition_url(audition) %></li>
-<% end %>
-</ul>
+
+
 
 <%= link_to 'Edit', edit_associate_path(@associate) %> |
 <%= link_to 'Back', associates_path %>
