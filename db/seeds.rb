@@ -13,14 +13,6 @@ companies = [
 
 ]
 
-auditions = [
-  { name: "The Seagull", post_date: Date.today, audition_date: "January 3rd", description: "Looking for women ages 19-mid 20s to play Nina. Please prepare a 90 second monologue", company_id: 41 },
-  { name: "Big Knife", post_date: Date.today, audition_date: "December 31st-January 5th", description: "Seeking non-equity actors for multiple male roles. We are looking for all ages. Fight experience preferable", company_id: 42 },
-  { name: "SubUrbia", post_date: Date.today, audition_date: "December 28th", description: "Casting all roles for our new production of SubUrbia. Looking for all ethnicities, teenage through late 20s." , company_id: 43 },
-  { name: "Blackbird", post_date: Date.today, audition_date: "December 17th", description: "Looking for a man in his 50s to play Ray in our new production of Blackbird by David Harrower", company_id: 41 }
-]
-
-
 Actor.destroy_all
 
 Company.destroy_all
@@ -37,14 +29,4 @@ companies.each do |company|
   c.email = company[:email]
   c.logo = company[:logo]
   c.save
-end
-
-auditions.each do |audition|
-  a = Audition.new
-  a.name = audition[:name]
-  a.post_date = audition[:post_date]
-  a.audition_date = audition[:audition_date]
-  a.description = audition[:description]
-  a.company_id = audition[:company_id]
-  a.save
 end
