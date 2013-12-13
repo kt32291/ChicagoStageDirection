@@ -6,8 +6,8 @@
 <%= hidden_field_tag :actor_id, session[:actor_id] %>
 
 <%= submit_tag "Yes", class: "btn btn-primary" %>
+<button type="button" class="btn btn-primary"><%= link_to "No", auditions_url %></button>
 
 <% end %>
 
-<button type="button" class="btn btn-primary"><%= link_to "No", auditions_url %></button>
 
