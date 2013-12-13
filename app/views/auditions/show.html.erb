@@ -22,6 +22,7 @@
   <% if associate.company_id == @audition.company.id %>
   <%= link_to '<i class="fa fa-list-ol"></i> Submissions'.html_safe, submissions_url(audition_id: @audition.id), class: "btn btn-primary" %>
   <%= link_to '<i class="fa fa-pencil"></i> Edit Audition'.html_safe, edit_audition_path(@audition), class: "btn btn-primary" %>
+  <%= link_to '<i class="fa fa-trash-o"></i> Delete Audition'.html_safe, @audition, method: :delete, data: { confirm: 'Are you sure you want to delete this audition? This action cannot be reversed.' }, class: "btn btn-primary" %>
   <% end %>
 <% end %>
 <br>

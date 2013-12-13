@@ -4,6 +4,7 @@
   <div class="col-md-4">
     <h1 class="primary_blue name"><%= @associate.name %></h1>
     <h3><%= @associate.email %></h3>
+    <%= link_to 'New Audition', new_audition_path(company_id: @company.id), class: "btn btn-primary" %>
   </div>
 
   <div class="col-md-8">

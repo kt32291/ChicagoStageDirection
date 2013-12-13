@@ -9,15 +9,15 @@
         <h1 class="right">Auditions <i class="fa fa-arrow-right"></i></h1>
   <ul class="list-group">
   <li class="list-group-item">
-    <span class="badge">82</span>
+    <span class="badge"><%= Audition.all.count %></span>
     All Auditions
   </li>
   <li class="list-group-item">
-    <span class="badge">45</span>
+    <span class="badge"><%= Audition.where(equity: "Equity").count %></span>
     Equity Auditions
   </li>
   <li class="list-group-item">
-    <span class="badge">37</span>
+    <span class="badge"><%= Audition.where(equity: "Non-Equity").count %></span>
     Non-Equity Auditions
   </li>
 </ul>
@@ -39,4 +39,4 @@
 
 <br>
 
-<%= link_to 'New Audition', new_audition_path %>
+
