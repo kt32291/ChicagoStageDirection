@@ -27,11 +27,9 @@
 <div class="col-md-9">
     <% @auditions.each do |audition| %>
     <% company = Company.find_by(id: audition.company_id) %>
-     <div class="container">
         <h2><%= link_to '<i class="fa fa-check"></i> Submit'.html_safe, new_submission_url(audition_id: audition.id), class: "btn btn-primary" %>  <%= company.name %>: <%= link_to audition.name, audition, class: "link_fix" %></h2>
         Audition Date: <%= audition.audition_date %><br>
         <%= audition.description %><br>
-    </div>
   <% end %>
   </div>
 </div>
