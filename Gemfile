@@ -8,6 +8,8 @@ gem 'starter_generators'
 
 gem 'carrierwave', '0.9.0'
 
+gem "fog", "~> 1.3.1"
+
 gem 'mini_magick'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

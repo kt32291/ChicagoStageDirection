@@ -27,8 +27,6 @@ class ActorsController < ApplicationController
   # POST /actors.json
   def create
     @actor = Actor.new(actor_params)
-    @actor.headshot = params[:actor][:file]
-    @actor.resume = params[:actor][:resume_file]
 
     respond_to do |format|
       if @actor.save
@@ -81,7 +79,7 @@ class ActorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def actor_params
-      params.require(:actor).permit(:first_name, :last_name, :gender, :equity, :height, :eyes, :hair, :weight, :email, :password, :password_confirmation)
+      params.require(:actor).permit(:first_name, :last_name, :gender, :equity, :height, :eyes, :hair, :weight, :resume, :headshot, :email, :password, :password_confirmation)
     end
 
     def verify_show
