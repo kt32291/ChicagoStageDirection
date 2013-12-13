@@ -4,7 +4,7 @@ class AuditionsController < ApplicationController
   # GET /auditions
   # GET /auditions.json
   def index
-    @auditions = Audition.all
+    @auditions = Audition.all.order(:name)
   end
 
   # GET /auditions/1
